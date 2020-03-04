@@ -1,1 +1,3 @@
 First text added to the file
+
+Added second line of text

@@ -4,20 +4,20 @@ Dylan Elley
 */
 
 // Question 2
-answer = 1 + 2 + 3 + 4 + 5
+let answer = 1 + 2 + 3 + 4 + 5
 console.log(answer)
 
 // Question 3
-height = 50
-base = 20
-area = (base * height) / 2
+let height = 50
+let base = 20
+let area = (base * height) / 2
 console.log(area)
 
 // Question 4
 // Sphere equation is 4 PI r^2
 const PI = 3.14
-radius = 10
-sphereArea = 4 * PI * Math.pow(radius, 2)
+let radius = 10
+let sphereArea = 4 * PI * Math.pow(radius, 2)
 console.log(sphereArea)
 
 // Question 5
@@ -25,7 +25,7 @@ console.log(sphereArea)
 console.log("The sum of 5 and 3 is " + (5+3) + ".")
 
 // Question 6
-age = 33
+let age = 33
 console.log("My age is " + age + " years old.")
 
 // Question 7
@@ -37,8 +37,8 @@ console.log('Einstein once said: "Life is like riding a bicycle. To keep your ba
 console.log("Einstein once said: \"Life is like riding a bicycle. To keep your balance you must keep moving.\"")
 
 // Question 9
-num1 = 12
-num2 = 7
+let num1 = 12
+let num2 = 7
 if (num1 >= num2) {
 	console.log("Number 1 is greater or equal to number 2.")
 }
@@ -48,8 +48,8 @@ else {
 
 // Question 10
 // XOR evaluates to false when both variables have equal states otherwise true
-switch1 = true
-switch2 = false
+let switch1 = true
+let switch2 = false
 
 if ((switch1 && switch2) || (!switch1 && !switch2)) {
 	console.log("Both Switch 1 and 2 have the same state")
@@ -59,8 +59,8 @@ else {
 }
 
 // Question 11
-number1 = 10
-number2 = 9
+let number1 = 10
+let number2 = 9
 
 if ((number1 > number2) && (number2 > 0)) {
 	console.log("These numbers satisfy the conditions")
@@ -70,8 +70,8 @@ else {
 }
 
 // Question 12
-number1 = 13
-number2 = 13
+let number3 = 13
+let number4 = 13
 
 if ((number1 == number2) && (number2 > 0)) {
 	console.log("These numbers satisfy the conditions")
@@ -81,7 +81,7 @@ else {
 }
 
 // Question 13
-variable = "15"
+let variable = "15"
 
 if (typeof(variable) == "number") {
 	console.log("This variable is a number")
@@ -91,8 +91,8 @@ else {
 }
 
 // Question 14
-number1 = 3
-number2 = 1
+let number5 = 3
+let number6 = 1
 
 if ((number1 + number2) > (number1 * number2)) {
 	console.log("The sum of the two numbers is greater then their product")
@@ -104,10 +104,10 @@ else {
 // Question 15
 // Cone equation = PI * r^2 * h/3
 // Cylinder = PI * r^2 * h
-base = 3
-height = 99
-coneVolume = PI * Math.pow(base/2, 2) * height/3
-cylinderVolume = PI * Math.pow(base/2, 2) * height
+let base2 = 3
+let height2 = 99
+let coneVolume = PI * Math.pow(base/2, 2) * height/3
+let cylinderVolume = PI * Math.pow(base/2, 2) * height
 
 if (coneVolume > cylinderVolume) {
 	console.log("The volume of the cone " + coneVolume + " is greater than the volume of the cylinder " + cylinderVolume)
@@ -119,13 +119,13 @@ else {
 // PART II
 const GST = 0.15
 // This product has no GST included
-productPrice = 18
-gstToBeAdded = (productPrice * GST)
+let productPrice = 18
+let gstToBeAdded = (productPrice * GST)
 console.log("The initial product price was " + productPrice + "$, we must add " + gstToBeAdded + "$ for a total of " + (productPrice + gstToBeAdded) + "$")
 
 // This product price already has GST included
-productPriceIncludesGST = 120
-productRemovedGST = productPriceIncludesGST / (GST + 1)
+let productPriceIncludesGST = 120
+let productRemovedGST = productPriceIncludesGST / (GST + 1)
 console.log("The price of the product including GST was " + productPriceIncludesGST + "$, The GST added was " + (productPriceIncludesGST - productRemovedGST) + "$, The origonal product price is " + productRemovedGST + "$")
 
 

@@ -1,0 +1,76 @@
+/*
+1) The Largest Number (Function Version)
+
+Write a function that receives up to two numbers and returns the biggest. If the function receives only one number, then it should return the received number.
+*/
+
+function biggestNumber(n1, n2) {
+if (n2 == undefined) {
+
+return n1;
+}
+
+if (n1 > n2) {
+
+return n1;
+}
+
+return n2
+}
+
+console.log(biggestNumber(5, 10));
+console.log(biggestNumber(10));
+
+/*
+2) Triangular Number Series
+
+A number in the triangular number series counts the objects that can form an equilateral triangle. Starting from one, the nth number in the series represents the number of dots in a triangle with n dots on a side. For example, the picture above shows the first four numbers in the series:
+
+triangle-series.png
+
+You can refer to this page (https://edublognss.wordpress.com/2013/04/16/famous-mathematical-sequences-and-series/). Links to an external site. for a better understanding of the triangular number series:
+
+For this problem, you need to create a function that receives a parameter "n" and returns the nth triangle in the triangular number series (i.e., the number of dots that form an equilateral triangle with n dots on its side).
+*/
+
+function getNthTriangle(n) {
+
+return (n * (n + 1)) / 2;
+
+}
+console.log(getNthTriangle(5));
+
+/*
+3) rinting Triangles
+
+Write a function that receives a parameter "n" and displays the triangle representing the nth triangle in the triangular number series. Your function must not return any value. For example, for n = 4, your function should display the following picture (you can use the symbol "*" as an object or dot):
+
+
+In the example above, the way of displaying the triangle might simplify your code A LOT.
+*/
+
+function printNthTriangle(n) {
+let stars = "*";
+for (let c = 1; c <= n; c++) {
+console.log(stars);
+stars += "*";
+}
+}
+
+printNthTriangle(10);
+
+
+/*
+4) More on the Triangle Number Series
+
+Write a function that receives a parameter "n" and displays the first n numbers of the triangle number series. For each number in the series, your function should also display the corresponding triangle. Note that the number of "dots" or "*" used to display each triangle is the same as the corresponding number in the series.
+*/
+
+function printTriangleSeries(n) {
+for (let c = 1; c <= n; c++) {
+console.log(c + "th number: " + getNthTriangle(c));
+printNthTriangle(c);
+}
+}
+
+printTriangleSeries(10);

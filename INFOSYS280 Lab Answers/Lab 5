@@ -1,0 +1,158 @@
+/*
+1) Representing a Student
+
+Create an object literal for representing a student that contains the student ID, first name, last name, date of birth, major, and current year of study.
+
+You must store the date of birth as a string and year of study as a number.
+*/
+
+let student = {
+id: "111",
+firstName: "Jose",
+lastName: "Ortiz",
+dateOfBirth: "June 05 1985",
+major: "Information Systems",
+currentYear: 4
+};
+
+/*
+2) Get and Set Functions
+
+For this problem, you need to write the following three functions:
+
+2.1) A function that receives as a parameter a student object and returns a string with all the information of the student as follows:
+studentID: <student id>, firstName: <first name>, lastName <last name>, dateOfBirth: <date of birth>, major: <major>, currentYearOfStudy: <current year of study>
+
+You MUST use the for...in statement.
+
+2.2) A function that receives as a parameter a student object and a property. If the property exists in the object, your function should return a string with the value of the property. Otherwise, your function should return the string "N/A."
+
+You must use the in operator.
+
+2.3) A function that receives as a parameter a student object, a property, and a value. If the property exists in the student object, your function should update the value of that property in the object and return true. If the property does not exist in the student object, your function should return false.
+
+Test your functions with the object literal created in Problem 1.
+
+*/
+
+function getStudentInfo(student) {
+let details = '';
+for(let detail in student) {
+details += detail + ": " + student[detail] + " ";
+}
+
+return details;
+}
+
+console.log("STUDENT DETAILS");
+console.log(getStudentInfo(student));
+
+function getStudentDetail(student, detail) {
+let detailValue = detail in student ? student[detail] : "N/A";
+
+return detailValue;
+}
+
+console.log("STUDENT DETAIL");
+console.log("Major: " + getStudentDetail(student, 'major'));
+console.log("Age: " + getStudentDetail(student, 'age'));
+
+function setStudentDetail(student, detail, value) {
+if(detail in student) {
+student[detail] = value;
+
+return true;
+}
+
+return false;
+}
+
+console.log("SET STUDENT DETAIL");
+console.log(getStudentInfo(student));
+console.log(setStudentDetail(student, 'currentYear', 3));
+console.log(getStudentInfo(student));
+console.log(setStudentDetail(student, 'age', 33));
+
+/* 3. Given the data structure below, write a function that finds the person with the closest age to other person specified as a parameter. Thus, your function should receive two parameters: the staff object and a person object. Your function should return an object person.
+
+let staff = [
+{id: "U1", name: "Jose", age: 33},
+{id: "U2", name: "John", age: 20},
+{id: "U3", name: "Mary", age: 27},
+{id: "U4", name: "Paul", age: 26},
+{id: "U5", name: "Paul", age: 30},
+{id: "U6", name: "Paul", age: 31}
+];
+
+You should test your function in the following way:
+
+let person1 = staff[0];
+let closestAgeToPerson1 = getClosestAge(staff, person1);
+
+let person2 = staff[3];
+let closestAgeToPerson2 = getClosestAge(staff, person2);
+
+NOTE that the received object is obtained from the staff directory. Thus, when implementing your function you might want to use the == operator for performing an equality comparison between two objects. You may want to ask your tutor about assessing object equality in JavaScript.
+
+You can find an excellent explanation at: http://adripofjavascript.com/blog/drips/object-equality-in-javascript.html
+
+*/
+
+let staff = [
+{id: "U1", name: "Jose", age: 33},
+{id: "U2", name: "John", age: 20},
+{id: "U3", name: "Mary", age: 27},
+{id: "U4", name: "Paul", age: 26},
+{id: "U5", name: "Jack", age: 30},
+{id: "U6", name: "Pedro", age: 31}
+];
+
+function getClosestAge(staff, person) {
+let closestPerson;
+
+for (let currentPerson of staff) {
+if (person != currentPerson) {
+if ((closestPerson == undefined) ||
+(Math.abs(currentPerson.age - person.age) < Math.abs(closestPerson.age - person.age))) {
+closestPerson = currentPerson;
+}
+}
+}
+
+return closestPerson;
+}
+
+console.log("TESTING FUNCTION USING REFERENCES TO OBJECTS IN THE STAFF DIRECTORY ");
+console.log(JSON.stringify(staff[0]) + " closest: " + JSON.stringify(getClosestAge(staff, staff[0])));
+console.log(JSON.stringify(staff[3]) + " closest: " + JSON.stringify(getClosestAge(staff, staff[3])));
+console.log(JSON.stringify(staff[5]) + " closest: " + JSON.stringify(getClosestAge(staff, staff[5])));
+
+/* 4. Rewrite the function implemented in problem 5, so that your function performs an equality comparison based on the values of the person object (using the ID property is enough for assessing whether two people are the same person). This will allow your function to be called in the following way:
+
+let person3 = {id: "U4", name: "Paul", age: 26};
+let closestAgeToPerson2 = getClosestAge(staff, person3);
+
+DISCUSS: By the end of this lab, you should be able to tell difference between comparing objects by reference versus value.
+*/
+
+console.log("TESTING FUNCTION USING DIFFERENT REFERENCES TO OBJECTS IN THE STAFF DIRECTORY ");
+console.log(JSON.stringify({id: "U4", name: "Paul", age: 26}) + " closest: " + JSON.stringify(getClosestAge(staff, {id: "U4", name: "Paul", age: 26})));
+
+function getClosestAgeUseID(staff, person) {
+let closestPerson;
+
+for (let currentPerson of staff) {
+if (person.id !== currentPerson.id) {
+if ((closestPerson == undefined) ||
+(Math.abs(currentPerson.age - person.age) < Math.abs(closestPerson.age - person.age))) {
+closestPerson = currentPerson;
+}
+}
+}
+
+return closestPerson;
+}
+
+
+console.log("TESTING FUNCTION VERSION 2: COMPARING OBJECTS BY USER ID");
+console.log(JSON.stringify({id: "U4", name: "Paul", age: 26}) + " closest: " + JSON.stringify(getClosestAgeUseID(staff, {id: "U4", name: "Paul", age: 26})));

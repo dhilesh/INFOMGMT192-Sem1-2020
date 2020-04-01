@@ -1,0 +1,71 @@
+/* 1) The Largest Number
+Display the largest number of 100 integer numbers generated at random. The range for each integer should be between 0 and 1000. */
+
+let largest = -1;
+for (let n = 0; n < 100; n++) {
+let random = Math.floor(Math.random() * 1000);
+if(random > largest) {
+largest = random;
+}
+}
+console.log(largest);
+
+/* 2) Identifying Palindromes
+Write a program that tells if a given word is a palindrome or not. A palindrome is a word that reads the same backward as forwards. For example, radar, kayak, level, noon, and civic.
+
+You must use only JavaScript built-in string functions. You may use conditional statements.
+*/
+
+let word = "noon";
+let reverse = "";
+for(let i = word.length - 1; i >= 0; i--) {
+reverse += word[i];
+}
+if(word == reverse) {
+console.log(word + " is a palindrome.");
+} else {
+console.log(word + " is not a palindrome.");
+}
+
+
+/* 3) Flipping a Coin
+Write a program that simulates a game where a player flips a coin by taking turns. In each turn, the player flips the coin 5 times. The player starts the game with 10 tokens. For every head flipped the player gets one token, and for every tail flipped the player loses one token. Allow the player to continue playing until either the player has negative tokens or 20 tokens.
+
+Display to the console, the result of each flip and current tokens in each turn (5 flips) in one single line.
+*/
+
+let tokens = 10;
+while(tokens > 0 && tokens <= 20) {
+let result = "";
+for(let n = 0; n < 5; n++) {
+let flip = Math.floor(Math.random() * 2);
+result += flip + " ";
+// 0 is tail and 1 is head
+if(flip == 0) {
+tokens--;
+} else {
+tokens ++;
+}
+}
+console.log("Flips: " + result + "Tokens: " + tokens);
+}
+
+/* 4) The Fibonacci Sequence
+The Fibonacci sequence is one of the most famous series in mathematics. Each number in the sequence is the sum of the two numbers that precede it starting from 0 and 1. So, the sequence goes: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, and so on. They appear in nature abundantly; for example, the number of spirals of bracts on a pinecone is always a Fibonacci number, and, similarly, the number of spirals of bracts on a pineapple is also a Fibonacci number!
+
+For this problem, you need to display the first 20 numbers of the Fibonacci sequence using an iteration statement. For reference, here are the first 20 numbers of the sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181.
+*/
+
+let c1=0
+let c2=1
+let n=2
+series="0 ";
+while(n <= 20) {
+series = series + c2 + " ";
+c2t = c2;
+c2 = c1 + c2;
+c1 = c2t;
+n++;
+}
+console.log(series);
+// 0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181
